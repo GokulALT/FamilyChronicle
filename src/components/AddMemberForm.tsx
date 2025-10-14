@@ -67,7 +67,18 @@ export default function AddMemberForm() {
       title: 'Success!',
       description: `${values.name} has been added to the family.`,
     });
-    form.reset();
+    form.reset({
+      name: '',
+      dob: '',
+      gender: undefined,
+      occupation: '',
+      email: '',
+      phone: '',
+      address: '',
+      parentId: null,
+      relationType: '',
+      notes: '',
+    });
   }
 
   return (
