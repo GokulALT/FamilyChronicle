@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import type { FamilyMember } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { User, Calendar, Briefcase, Mail, Phone, MapPin, FileText, Users, Link as LinkIcon, Home } from 'lucide-react';
+import { User, Calendar, Briefcase, Mail, Phone, MapPin, FileText, Users, Link as LinkIcon, Home, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
@@ -106,6 +106,7 @@ export default function MemberProfilePage() {
           <div className="space-y-2">
             <h3 className="font-headline text-xl border-b pb-2 mb-2 flex items-center gap-2"><LinkIcon /> Family Connections</h3>
             {parent && <InfoRow icon={<Users size={20} />} label="Parent" value={<Link href={`/members/${parent.id}`} className="text-primary hover:underline">{parent.name}</Link>} />}
+            {member.relationType && parent && <InfoRow icon={<Heart size={20} />} label="Relation to Parent" value={member.relationType} />}
             {children.length > 0 && 
               <InfoRow 
                 icon={<Users size={20} />} 

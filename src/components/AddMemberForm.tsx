@@ -131,31 +131,45 @@ export default function AddMemberForm() {
               />
             </div>
             
-            <FormField
-              control={form.control}
-              name="parentId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Parent</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value || ''}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="parentId"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Parent</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value || ''}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a parent" />
+                        </Trigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="null">None</SelectItem>
+                        {members.map(member => (
+                          <SelectItem key={member.id} value={member.id}>
+                            {member.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="relationType"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Relation to Parent</FormLabel>
                     <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a parent" />
-                      </SelectTrigger>
+                      <Input placeholder="e.g., Son, Daughter" {...field} />
                     </FormControl>
-                    <SelectContent>
-                      <SelectItem value="null">None</SelectItem>
-                      {members.map(member => (
-                        <SelectItem key={member.id} value={member.id}>
-                          {member.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                  </FormItem>
+                )}
+              />
+            </div>
             
             <FormField
               control={form.control}
