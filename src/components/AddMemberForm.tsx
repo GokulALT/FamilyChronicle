@@ -82,6 +82,7 @@ export default function AddMemberForm() {
   }
 
   return (
+    <>
     <Card>
       <CardHeader>
         <CardTitle className="font-headline text-2xl flex items-center gap-2">
@@ -96,6 +97,7 @@ export default function AddMemberForm() {
               control={form.control}
               name="name"
               render={({ field }) => (
+                <>
                 <FormItem>
                   <FormLabel>Full Name *</FormLabel>
                   <FormControl>
@@ -103,6 +105,7 @@ export default function AddMemberForm() {
                   </FormControl>
                   <FormMessage />
                 </FormItem>
+                </>
               )}
             />
             
@@ -153,7 +156,7 @@ export default function AddMemberForm() {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select a parent" />
-                        </Trigger>
+                        </SelectTrigger>
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="null">None</SelectItem>
@@ -215,5 +218,6 @@ export default function AddMemberForm() {
         </Form>
       </CardContent>
     </Card>
+    </>
   );
 }

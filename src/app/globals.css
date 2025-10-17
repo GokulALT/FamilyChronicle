@@ -93,12 +93,12 @@ body {
   }
 
   .tree ul {
-    @apply pt-8 relative flex justify-center space-x-4;
+    @apply pt-12 relative flex justify-center space-x-8;
   }
 
   .tree ul::before {
     content: '';
-    @apply absolute top-0 left-1/2 -ml-px h-8 w-0.5 bg-muted-foreground;
+    @apply absolute top-0 left-1/2 -ml-px h-12 w-1 bg-border;
   }
 
   .tree li {
@@ -108,11 +108,11 @@ body {
   .tree li::before,
   .tree li::after {
     content: '';
-    @apply absolute top-0 right-1/2 h-8 w-1/2 border-t border-muted-foreground;
+    @apply absolute top-0 right-1/2 h-12 w-1/2 border-t-2 border-border;
   }
 
   .tree li::after {
-    @apply left-1/2 border-l border-muted-foreground;
+    @apply left-1/2 border-l-2 border-border;
   }
 
   .tree li:first-child::before,
@@ -121,11 +121,11 @@ body {
   }
 
   .tree li:last-child::before {
-    @apply border-r border-muted-foreground rounded-tr-lg;
+    @apply border-r-2 border-border rounded-tr-xl;
   }
   
   .tree li:first-child::after {
-    @apply rounded-tl-lg;
+    @apply rounded-tl-xl;
   }
 
   .tree ul li:only-child::before,

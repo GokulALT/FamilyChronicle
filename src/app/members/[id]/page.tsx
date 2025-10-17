@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { MaleIcon, FemaleIcon } from '@/components/GenderIcons';
 
 const InfoRow = ({ icon, label, value }: { icon: React.ReactNode, label: string, value?: string | React.ReactNode }) => {
   if (!value) return null;
@@ -99,7 +100,7 @@ export default function MemberProfilePage() {
           <div className="space-y-2">
             <h3 className="font-headline text-xl border-b pb-2 mb-2 flex items-center gap-2"><User /> Personal Details</h3>
             <InfoRow icon={<Calendar size={20} />} label="Date of Birth" value={member.dob ? new Date(member.dob).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : undefined} />
-            <InfoRow icon={member.gender === 'Male' ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="16" x2="12" y2="22"></line><line x1="10" y1="20" x2="14" y2="20"></line></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="16" x2="12" y2="22"></line><line x1="10" y1="20" x2="14" y2="20"></line><line x1="12" y1="2" x2="12" y2="8"></line><line x1="10" y1="4" x2="14" y2="4"></line></svg>} label="Gender" value={member.gender} />
+            <InfoRow icon={member.gender === 'Male' ? <MaleIcon /> : <FemaleIcon />} label="Gender" value={member.gender} />
             <InfoRow icon={<Briefcase size={20} />} label="Occupation" value={member.occupation} />
           </div>
 
