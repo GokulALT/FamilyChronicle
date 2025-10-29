@@ -18,8 +18,8 @@ services:
   #   plan: free
   #   type: postgres
 
-staticSites:
-  - name: family-chronicle-static
-    buildCommand: npm run build
-    publishPath: .next/static
-    pullRequestPreviewsEnabled: true
+# staticSites:
+#   - name: family-chronicle-static
+#     buildCommand: npm run build
+#     publishPath: .next/static
+#     pullRequestPreviewsEnabled: true
