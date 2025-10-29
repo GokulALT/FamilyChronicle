@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: family-chronicle
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
+    healthCheckPath: /api/health
+    plan: free
+
+  # Optional database if you need one
+  # - name: family-chronicle-db
+  #   plan: free
+  #   type: postgres
+
+staticSites:
+  - name: family-chronicle-static
+    buildCommand: npm run build
+    publishPath: .next/static
+    pullRequestPreviewsEnabled: true
